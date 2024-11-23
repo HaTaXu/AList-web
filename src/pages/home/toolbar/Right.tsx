@@ -3,7 +3,7 @@ import { createMemo, Show } from "solid-js"
 import { RightIcon } from "./Icon"
 import { CgMoreO } from "solid-icons/cg"
 import { TbCheckbox } from "solid-icons/tb"
-import { objStore, State, toggleCheckbox, userCan } from "~/store"
+import { me, objStore, State, toggleCheckbox, userCan } from "~/store"
 import { bus } from "~/utils"
 import { operations } from "./operations"
 import { IoMagnetOutline } from "solid-icons/io"
@@ -13,6 +13,7 @@ import { usePath } from "~/hooks"
 import { Motion } from "@motionone/solid"
 import { isTocVisible, setTocDisabled } from "~/components"
 import { BiSolidBookContent } from "solid-icons/bi"
+import { UserMethods } from "~/types"
 
 export const Right = () => {
   const { isOpen, onToggle } = createDisclosure({
@@ -59,7 +60,6 @@ export const Right = () => {
         >
           <VStack spacing="$1" class="left-toolbar-in">
             <Show when={isFolder() && (userCan("write") || objStore.write)}>
-              {/* <Add /> */}
               <RightIcon
                 as={RiSystemRefreshLine}
                 tips="refresh"
@@ -130,11 +130,15 @@ export const Right = () => {
                 }}
               />
             </Show>
-            <RightIcon
-              tips="toggle_checkbox"
-              as={TbCheckbox}
-              onClick={toggleCheckbox}
-            />
+
+            <Show when={UserMethods.is_admin(me()) || me().permission & 488}>
+              <RightIcon
+                tips="toggle_checkbox"
+                as={TbCheckbox}
+                onClick={toggleCheckbox}
+              />
+            </Show>
+
             <RightIcon
               as={AiOutlineSetting}
               tips="local_settings"

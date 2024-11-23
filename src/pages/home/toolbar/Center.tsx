@@ -1,11 +1,19 @@
 import { Box, HStack, useColorModeValue } from "@hope-ui/solid"
 import { createMemo, For, Show } from "solid-js"
-import { checkboxOpen, haveSelected, objStore, selectAll, State } from "~/store"
+import {
+  checkboxOpen,
+  haveSelected,
+  me,
+  objStore,
+  selectAll,
+  State,
+} from "~/store"
 import { CopyLink } from "./CopyLink"
 import { CenterIcon } from "./Icon"
 import { bus } from "~/utils"
 import { Download } from "./Download"
 import { Motion, Presence } from "@motionone/solid"
+import { UserMethods } from "~/types"
 
 export const Center = () => {
   const show = createMemo(
@@ -53,8 +61,12 @@ export const Center = () => {
                 )
               }}
             </For>
-            <CopyLink />
-            <Download />
+
+            <Show when={UserMethods.can(me(), 3)}>
+              <CopyLink />
+              <Download />
+            </Show>
+
             <CenterIcon
               name="cancel_select"
               onClick={() => {

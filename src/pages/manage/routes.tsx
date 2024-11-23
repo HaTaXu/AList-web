@@ -20,7 +20,23 @@ const hide_routes: Route[] = [
     component: lazy(() => import("./users/AddOrEdit")),
   },
   {
+    to: "/userGroups/add",
+    component: lazy(() => import("./userGroups/AddOrEdit")),
+  },
+  {
     to: "/users/edit/:id",
+    component: lazy(() => import("./users/AddOrEdit")),
+  },
+  {
+    to: "/userGroups/edit/:id",
+    component: lazy(() => import("./userGroups/AddOrEdit")),
+  },
+  {
+    to: "/userGroups/manage/:user_group_name",
+    component: lazy(() => import("./userGroups/Manage")),
+  },
+  {
+    to: "/userGroups/manage/:user_group_name/:id",
     component: lazy(() => import("./users/AddOrEdit")),
   },
   {

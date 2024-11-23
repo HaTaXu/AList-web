@@ -57,32 +57,34 @@ export const ContextMenu = () => {
         )}
       </For>
       <Show when={oneChecked()}>
-        <Item
-          onClick={({ props }) => {
-            if (props.is_dir) {
-              copySelectedPreviewPage()
-            } else {
-              copySelectedRawLink(true)
-            }
-          }}
-        >
-          <ItemContent name="copy_link" />
-        </Item>
-        <Item
-          onClick={({ props }) => {
-            if (props.is_dir) {
-              if (!canPackageDownload()) {
-                notify.warning(t("home.toolbar.package_download_disabled"))
-                return
+        <Show when={UserMethods.can(me(), 3)}>
+          <Item
+            onClick={({ props }) => {
+              if (props.is_dir) {
+                copySelectedPreviewPage()
+              } else {
+                copySelectedRawLink(true)
               }
-              bus.emit("tool", "package_download")
-            } else {
-              batchDownloadSelected()
-            }
-          }}
-        >
-          <ItemContent name="download" />
-        </Item>
+            }}
+          >
+            <ItemContent name="copy_link" />
+          </Item>
+          <Item
+            onClick={({ props }) => {
+              if (props.is_dir) {
+                if (!canPackageDownload()) {
+                  notify.warning(t("home.toolbar.package_download_disabled"))
+                  return
+                }
+                bus.emit("tool", "package_download")
+              } else {
+                batchDownloadSelected()
+              }
+            }}
+          >
+            <ItemContent name="download" />
+          </Item>
+        </Show>
         <Submenu
           hidden={({ props }) => {
             return props.type !== ObjType.VIDEO

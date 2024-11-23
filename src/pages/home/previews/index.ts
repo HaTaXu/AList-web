@@ -1,7 +1,9 @@
 import { Component, lazy } from "solid-js"
 import { getIframePreviews } from "~/store"
-import { Obj, ObjType } from "~/types"
+import { Obj, ObjType, UserMethods } from "~/types"
+import { me } from "~/store"
 import { ext } from "~/utils"
+import { useT } from "~/hooks"
 import { generateIframePreview } from "./iframe"
 import { useRouter } from "~/hooks"
 
@@ -98,6 +100,7 @@ export const getPreviews = (
   const typeOverride =
     ObjType[searchParams["type"]?.toUpperCase() as keyof typeof ObjType]
   const res: PreviewComponent[] = []
+  const t = useT()
   // internal previews
   previews.forEach((preview) => {
     if (preview.provider && !preview.provider.test(file.provider)) {
@@ -121,9 +124,11 @@ export const getPreviews = (
     })
   })
   // download page
-  res.push({
-    name: "Download",
-    component: lazy(() => import("./download")),
-  })
+  if (!UserMethods.is_guest(me()) && UserMethods.can(me(), 3)) {
+    res.push({
+      name: t("home.preview.download"),
+      component: lazy(() => import("./download")),
+    })
+  }
   return res
 }

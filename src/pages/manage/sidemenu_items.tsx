@@ -12,6 +12,7 @@ import {
   BsCloudUploadFill,
   BsSearch,
   BsBucket,
+  BsPersonLinesFill,
 } from "solid-icons/bs"
 import { FiLogIn } from "solid-icons/fi"
 import { SiMetabase } from "solid-icons/si"
@@ -140,6 +141,12 @@ export const side_menu_items: SideMenuItem[] = [
     component: lazy(() => import("./users/Users")),
   },
   {
+    title: "manage.sidemenu.user_groups",
+    icon: BsPersonLinesFill,
+    to: "/@manage/groups",
+    component: lazy(() => import("~/pages/manage/userGroups/UserGroups")),
+  },
+  {
     title: "manage.sidemenu.storages",
     icon: CgDatabase,
     to: "/@manage/storages",
@@ -167,14 +174,14 @@ export const side_menu_items: SideMenuItem[] = [
     title: "manage.sidemenu.about",
     icon: BsFront,
     to: "/@manage/about",
-    role: UserRole.GUEST,
+    role: UserRole.ADMIN,
     component: lazy(() => import("./About")),
   },
   {
     title: "manage.sidemenu.docs",
     icon: FaSolidBook,
     to: "https://alist.nn.ci",
-    role: UserRole.GUEST,
+    role: UserRole.ADMIN,
     external: true,
   },
   {

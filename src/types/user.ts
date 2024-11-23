@@ -8,6 +8,7 @@ export interface User {
   id: number
   username: string
   password: string
+  user_group: string
   base_path: string
   role: UserRole
   permission: number
@@ -20,6 +21,7 @@ export const UserPermissions = [
   "see_hides",
   "access_without_password",
   "offline_download",
+  "online_download",
   "write",
   "rename",
   "move",

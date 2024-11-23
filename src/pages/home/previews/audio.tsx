@@ -31,7 +31,7 @@ const Preview = () => {
       cover:
         obj.thumb ||
         getSetting("audio_cover") ||
-        "https://jsd.nn.ci/gh/alist-org/logo@main/logo.svg",
+        "https://jsd.nn.ci/gh/HaTaXu/logo@main/shaanstar.svg",
       lrc: lrc,
     }
     if (objStore.provider === "NeteaseMusic") {
