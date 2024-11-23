@@ -14,7 +14,8 @@
     "tr-install": "TrollStore",
     "tr-installing": "TrollStore 正在安装",
     "open_in_new_window": "在新窗口中打开",
-    "auto_next": "自动下一个"
+    "auto_next": "自动下一个",
+    "unsupported_file_format": "暂不支持的文件格式，无法在线预览"
   },
   "layouts": {
     "list": "列表视图",
@@ -41,6 +42,7 @@
     "delete": "删除",
     "delete-tips": "确定要删除所选对象吗?",
     "copy_link": "复制链接",
+    "go_back": "返回",
     "preview_page": "预览页面",
     "down_link": "下载链接",
     "encode_down_link": "编码下载链接",
