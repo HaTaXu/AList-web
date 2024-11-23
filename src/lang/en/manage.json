@@ -8,6 +8,7 @@
     "global": "Global",
     "other": "Other",
     "users": "Users",
+    "user_groups": "User Groups",
     "storages": "Storages",
     "metas": "Metas",
     "profile": "Profile",
@@ -21,6 +22,7 @@
     "sso": "Single Sign-on",
     "docs": "Documentation",
     "offline_download": "Offline Download",
+    "online_download": "Online Download",
     "ldap": "LDAP",
     "s3": "S3"
   },

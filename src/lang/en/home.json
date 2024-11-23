@@ -14,7 +14,8 @@
     "tr-install": "TrollStore",
     "tr-installing": "TrollStore Installing",
     "open_in_new_window": "Open in new window",
-    "auto_next": "Auto next"
+    "auto_next": "Auto next",
+    "unsupported_file_format": "Unsupported file format, cannot be previewed online"
   },
   "layouts": {
     "list": "List View",
@@ -41,6 +42,7 @@
     "delete": "Delete",
     "delete-tips": "Are you sure to delete the selected object?",
     "copy_link": "Copy link",
+    "go_back": "Go back",
     "preview_page": "Preview page",
     "down_link": "Download link",
     "encode_down_link": "Encode download link",
