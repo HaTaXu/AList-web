@@ -208,7 +208,6 @@ const AddOrEdit = () => {
             loading={okLoading()}
             onClick={async () => {
               const resp = await ok()
-              // TODO maybe can use handleRespWithNotifySuccess
               handleResp(resp, () => {
                 notify.success(t("global.save_success"))
                 back()
