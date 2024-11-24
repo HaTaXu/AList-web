@@ -10,10 +10,10 @@
   "packageManager": "pnpm@9.9.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alist-org/alist-web.git"
+    "url": "git+https://github.com/HaTaXu/AList-web.git"
   },
   "bugs": {
-    "url": "https://github.com/alist-org/alist/issues"
+    "url": "https://github.com/HaTaXu/AList/issues"
   },
   "files": [
     "dist"
